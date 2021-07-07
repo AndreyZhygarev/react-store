@@ -12,31 +12,31 @@ interface RootState {
   };
 }
 
-const StoreCounter = () => {
+const ReduxCounter = () => {
   const dispatch = useDispatch();
   const counter = useSelector((state: RootState) => state.counter.counter);
 
-  const incrementStoreCounterHandler = () => {
+  const incrementReduxCounterHandler = () => {
     dispatch(incrementCounter());
   };
 
-  const decrementStoreCounterHandler = () => {
+  const decrementReduxCounterHandler = () => {
     dispatch(decrementCounter());
   };
 
-  const resetStoreCounterHandler = () => {
+  const resetReduxCounterHandler = () => {
     dispatch(resetCounter());
   };
 
   return (
     <>
-      <h1>Store counter</h1>
+      <h1>Redux counter</h1>
       <h3>Counter: {counter}</h3>
-      <button onClick={incrementStoreCounterHandler}>+</button>
-      <button onClick={decrementStoreCounterHandler}>-</button>
-      <button onClick={resetStoreCounterHandler}>Reset!</button>
+      <button onClick={incrementReduxCounterHandler}>+</button>
+      <button onClick={decrementReduxCounterHandler}>-</button>
+      <button onClick={resetReduxCounterHandler}>Reset!</button>
     </>
   );
 };
 
-export default StoreCounter;
+export default ReduxCounter;

@@ -1,8 +1,9 @@
 import { Provider } from "react-redux";
 import { store } from "./redux/store/";
 
-import StateCounter from "./components/StateCounter/";
-import StoreCounter from "./components/StoreCounter";
+import StateCounter from "./components/StateCounter";
+import ReduxCounter from "./components/ReduxCounter";
+import MobXCounter from "./components/MobXCounter";
 
 import "./App.css";
 
@@ -12,7 +13,9 @@ const App = () => {
       <div className="App">
         <StateCounter />
         <hr />
-        <StoreCounter />
+        <ReduxCounter />
+        <hr />
+        <MobXCounter />
       </div>
     </Provider>
   );
