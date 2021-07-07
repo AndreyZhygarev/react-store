@@ -1,6 +1,8 @@
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./redux/store/";
 
+import { RecoilRoot } from "recoil";
+
 import {
   MobXStoreContext as MobXProvider,
   MobXState,
@@ -9,22 +11,27 @@ import {
 import StateCounter from "./components/StateCounter";
 import ReduxCounter from "./components/ReduxCounter";
 import MobXCounter from "./components/MobXCounter";
+import RecoilCounter from "./components/RecoilCounter";
 
 import "./App.css";
 
 const App = () => {
   return (
-    <ReduxProvider store={store}>
+    <div className="App">
+      <StateCounter />
+      <hr />
+      <ReduxProvider store={store}>
+        <ReduxCounter />
+      </ReduxProvider>
+      <hr />
       <MobXProvider.Provider value={MobXState}>
-        <div className="App">
-          <StateCounter />
-          <hr />
-          <ReduxCounter />
-          <hr />
-          <MobXCounter />
-        </div>
+        <MobXCounter />
       </MobXProvider.Provider>
-    </ReduxProvider>
+      <hr />
+      <RecoilRoot>
+        <RecoilCounter />
+      </RecoilRoot>
+    </div>
   );
 };
 
