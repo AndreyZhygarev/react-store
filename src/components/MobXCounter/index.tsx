@@ -1,29 +1,11 @@
-import { makeAutoObservable } from "mobx";
+import { useContext } from "react";
 import { observer } from "mobx-react-lite";
 
-class Counter {
-  counter: number = 0;
-
-  constructor() {
-    makeAutoObservable(this);
-  }
-
-  incrementCounter(): void {
-    this.counter += 1;
-  }
-
-  decrementCounter(): void {
-    this.counter += -1;
-  }
-
-  resetCounter(): void {
-    this.counter = 0;
-  }
-}
-
-const mobXCounter = new Counter();
+import { MobXStoreContext } from "../../context/mobxStoreContext";
 
 const MobXCounter = observer(() => {
+  const mobXCounter = useContext(MobXStoreContext);
+
   const incrementMobXCounterHandler = () => {
     mobXCounter.incrementCounter();
   };
